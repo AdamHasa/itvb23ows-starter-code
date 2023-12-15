@@ -1,7 +1,7 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent {
-             docker { image 'node:20.10.0-alpine3.19' }
+             docker { image 'php:7.4-apache' }
         }
     stages {
         stage('Build') {
