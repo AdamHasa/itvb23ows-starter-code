@@ -1,8 +1,7 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
     agent {
-             docker { image '2f7e0ceeaa82' }
-             docker {image 'aa8d880e4578'}
+             docker { image 'node:20.10.0-alpine3.19' }
         }
     stages {
         stage('Build') {
