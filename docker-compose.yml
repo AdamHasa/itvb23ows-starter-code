@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  php-app:
+    build:
+      context: C:\GitHub\itvb23ows-starter-code
+      dockerfile: dockerfile.php
+    ports:
+      - "8000:80"
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    build:
+      context: C:\GitHub\itvb23ows-starter-code
+      dockerfile: dockerfile.mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: DitIsSQL2002
+      MYSQL_DATABASE: hive
+      MYSQL_USER: root
+      MYSQL_PASSWORD: DitIsSQL2002
