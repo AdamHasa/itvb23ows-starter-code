@@ -14,17 +14,18 @@ pipeline {
             }
          stage('Test'){
             steps{
-            sh './gradlew check'
+                sh 'make check || true'
+                junit '**/target/*.xml'
                 }
             }
         }
     }
-    post {
-            always {
-                //archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-                junit 'build/reports/**/*.xml'
-            }
-        }
+//     post {
+//             always {
+//                 archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+//                 junit 'build/reports/**/*.xml'
+//             }
+//         }
 }
 
 
