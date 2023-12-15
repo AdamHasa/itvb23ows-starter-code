@@ -1,6 +1,9 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
+    agent {
+             docker { image '2f7e0ceeaa82' }
+             docker {image 'aa8d880e4578'}
+        }
     stages {
         stage('Build') {
             steps {
@@ -13,6 +16,7 @@ pipeline {
         }
     }
 }
+
 
 
 
