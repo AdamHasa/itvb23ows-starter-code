@@ -4,19 +4,16 @@ pipeline {
              docker { image 'php:7.4-apache' }
         }
     stages {
-        stage('Build') {
+         stage('SonarQube') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
-            }
-         stage('Test'){
-            steps{
-                sh echo 'testing...'
-                }
-            }
+                  script { scannerHome = tool 'TestSonarQubeScanner' }
+                  withSonarQubeEnv('TestingSonarCube') {
+                  sh "${scannerHome}/bin/sonar-scanner
+                   -Dsonar.projectKey=TestingSonarCube"
+                 }
+             }
+         }
+
         }
     }
 //     post {
