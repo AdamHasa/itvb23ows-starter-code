@@ -19,5 +19,4 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: DitIsSQL2002
       MYSQL_DATABASE: hive
-      MYSQL_USER: root
       MYSQL_PASSWORD: DitIsSQL2002

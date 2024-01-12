@@ -5,7 +5,7 @@ COPY hive.sql /docker-entrypoint-initdb.d/hive.sql
 
 ENV MYSQL_ROOT_PASSWORD=DitIsSQL2002
 ENV MYSQL_DATABASE=hive
-ENV MYSQL_USER=root
+
 ENV MYSQL_PASSWORD=DitIsSQL2002
 
 EXPOSE 3306

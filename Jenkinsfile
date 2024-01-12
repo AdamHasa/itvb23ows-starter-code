@@ -7,6 +7,7 @@ pipeline {
   }
   stages{
     stage('SonarQube'){
+        agent { label '!windows'}
         steps {
             script{
                 scannerHome = tool 'TestSonarQubeScanner'
@@ -19,7 +20,7 @@ pipeline {
     }
 }
 
-  
+
 
 
 
