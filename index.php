@@ -136,8 +136,19 @@
             </select>
             <select name="to">
                 <?php
-                    foreach ($to as $pos) {
-                        echo "<option value=\"$pos\">$pos</option>";
+                function isValidMove($pos, $hand, $board, $player): bool
+                {
+                    return !(isset($board[$pos]) &&
+                        (count($board) && !hasNeighBour($pos, $board)) &&
+                        (array_sum($hand) < 11 && !neighboursAreSameColor($player, $pos, $board))
+                    );
+
+                }
+
+                foreach ($to as $pos) {
+                        if (isValidMove($pos, $hand, $board, $player)) {
+                            echo "<option value=\"$pos\">$pos</option>";
+                        }
                     }
                 ?>
             </select>
